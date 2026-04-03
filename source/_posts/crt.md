@@ -7,6 +7,7 @@ tags: [模板, 数论]
 # 实现
 
 ```cpp
+const __int128 i128 = 1;
 long long crt(vector<array<long long, 2>> a) {
     long long n = 1, res = 0;
     for (int i = 0; i < a.size(); i++)
@@ -14,7 +15,7 @@ long long crt(vector<array<long long, 2>> a) {
     for (int i = 0; i < a.size(); i++) {
         long long m = n / a[i][1], b, y;
         exgcd(m, a[i][1], b, y);
-        res = (res + m * b * a[i][0] % n) % n;
+        res = (res + i128 * m * b * a[i][0] % n) % n;
     }
     return (res % n + n) % n;
 }
@@ -85,6 +86,7 @@ $$
 ## 个人原型
 
 ```cpp
+const __int128 i128 = 1;
 long long crt(vector<array<long long, 2>> a) {
     long long n = 1, res = 0;
     for (int i = 0; i < a.size(); i++)
@@ -95,7 +97,7 @@ long long crt(vector<array<long long, 2>> a) {
         exgcd(m, a[i][1], b, y);
         // (m, a[i][1]) = 1 时，有 b * m + y * a[i][1] = 1
         // 推出 b * m % a[i][1] = 1
-        res = (res + m * b % n * a[i][0]) % n;
+        res = (res + i128 * m * b * a[i][0] % n) % n;
     }
     return (res % n + n) % n; // 注意 b 可能是负数，导致 res 为负
 }

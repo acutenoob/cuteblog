@@ -1,7 +1,7 @@
 ---
-title: gcd
+title: 最大公因数 gcd
 date: 2026-03-04 20:01:18
-tags: 模板
+tags: [模板,数论]
 ---
 
 # 实现

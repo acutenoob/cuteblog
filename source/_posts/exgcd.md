@@ -1,5 +1,5 @@
 ---
-title: exgcd
+title: 扩展欧拉定理 exgcd
 date: 2026-03-31 20:01:18
 tags: [模板, 数论]
 ---

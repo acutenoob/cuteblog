@@ -1,7 +1,7 @@
 ---
-title: dydfs
+title: 多源dfs
 date: 2026-03-04 20:03:49
-tags: 知识
+tags: 图论
 ---
 
 # 多源dfs

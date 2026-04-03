@@ -1,7 +1,7 @@
 ---
 title: tarjan
 date: 2026-03-09 22:08:20
-tags: 模板
+tags: [模板,图论]
 ---
 
 [洛谷P3388](https://www.luogu.com.cn/problem/P3388)
