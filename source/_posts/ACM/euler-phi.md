@@ -83,79 +83,106 @@ $(r,p^k) = 1$ 的充要条件是 $ (r,p) = 1 $ 所以 $\varphi(x) $ 等于 $1,2,
 
 # 性质
 
+# 原理
+
+> 前方的道路，以后再来探索吧 —— 未来的我会告诉我的
+
+26/3/12  刚刚买了《初等数论》书的 acutenoob
+
+26/3/31  
+设 $n = p_1^{\alpha_1} \dots p_m^{\alpha_m}$，则  
+$$
+\varphi(n) = (p_1 - 1)p_1^{\alpha_1 - 1} \dots (p_m - 1)p_m^{\alpha_m - 1}
+$$
+
+设 $p$ 是质数且 $k \ge 1$，则  
+$$\varphi(p^k) = p^{k - 1}(p - 1)$$
+并且模 $p^k$ 的既约剩余系可以表示为  
+$$(a + bp) \bmod p^k,\quad 1 \le a \le p - 1,\; 0 \le b \le p^{k - 1} - 1$$
+  
+**证明**  
+$$
+(r,p) = \left\{
+\begin{aligned}
+1, &\quad p \nmid r \\
+p, &\quad p \mid r
+\end{aligned}
+\right.
+$$
+$(r,p^k) = 1$ 的充要条件是 $(r,p) = 1$，所以 $\varphi(p^k)$ 等于 $1,2,\dots ,p^k$ 中不能被 $p$ 整除的数的个数。显然，这些数共有 $p^k - p^{k-1}$ 个，因为能被 $p$ 整除的数为 $p,2p,3p,\dots,p^{k-1}p$，共 $p^{k-1}$ 个。因此 $\varphi(p^k) = p^k - p^{k-1}$。证毕。
+
+# 性质
+
 ## 定理1
-设 $m = m_1m_2$
 
-(i)若 m 和 $ m_1$有共同的素因数 则
-    $$\begin{equation}\varphi(m) = m_2\varphi(m_1) \end{equation}$$ 
-当 m > 1 时
-    $$\begin{equation} m = p_1^{\alpha_1}p_2^{\alpha_2}\dots p_r^{\alpha_r} \end{equation}$$
-则
-    $$\begin{equation}m = p_1^{\alpha_1 - 1}p_2^{\alpha_2 - 1}\dots p_r^{\alpha_r - 1}\varphi(p_1p_2\dots p_ r)\end{equation}$$
-(ii) 若 $(m_1,m_2) = 0$
-则
-    $$\begin{equation}\varphi(m) = \varphi(m_1)\varphi(m_2)\end{equation}$$ 
+设 $m = m_1 m_2$。
 
-特别地 若 m 由 (2) 给出 有
-    $$\begin{equation}\varphi(m) = (p_1 - 1)p_1^{\alpha_1 - 1} \dots (p_r - 1)p_r^{\alpha_r - 1}(5)\end{equation}$$
+(i) 若 $m_2$ 的每个素因数都是 $m_1$ 的素因数（即 $m_1$ 与 $m$ 有相同的素因子集合），则  
+$$ \begin{equation}\varphi(m) = m_2 \varphi(m_1) \end{equation} $$
 
+当 $m > 1$ 时，设  
+$$\begin{equation} m = p_1^{\alpha_1} p_2^{\alpha_2} \dots p_r^{\alpha_r} \end{equation}$$
+则有  
+$$\begin{equation} m = p_1^{\alpha_1 - 1} p_2^{\alpha_2 - 1} \dots p_r^{\alpha_r - 1} \varphi(p_1 p_2 \dots p_r) \end{equation}$$
 
-**证明**
+(ii) 若 $(m_1, m_2) = 1$，则  
+$$\begin{equation}\varphi(m) = \varphi(m_1) \varphi(m_2) \end{equation}$$
 
-由 完全剩余系的一个性质可知 $m_1$ 与 m 有相同的素因数时 
-    $$ x = x^{(1)} + m_2x^{(2)} $$
-$ x^{(1)} $遍历 $m_1$ 的既约剩余系 $ x^{(2)} $遍历 $m_2$ 的完全剩余系 则 x 遍历 m 的完全剩余系 $x^{(1)}$ 的 既约剩余系 有 $\varphi(m_1) $个元素  $x^{(2)}$  的完全剩余系 有 $m_2$ 个元素 及证（1） 由 (1) 可推得(3)
+特别地，若 $m$ 由 (2) 给出，有  
+$$\begin{equation}\varphi(m) = (p_1 - 1)p_1^{\alpha_1 - 1} \dots (p_r - 1)p_r^{\alpha_r - 1} \qquad (5) \end{equation}$$
 
-设 $m = m_1m_2,(m_1,m_2) = 1$
-$$ x = m_2x^{(1)} + m_1x^{(2)} $$
-则 x 遍历 m 的完全(既约)剩余系的充要条件是 $ x^{(1)} , x^{(2)} $ 分别遍历 $m_1,m_2$的完全(既约)剩余系  推得 (4)
+**证明**  
 
-由(3) (4) 知 $\varphi(p_1p_2\dots p_ r) = \varphi(p_1)\varphi(p_2\dots p_ r) = (p_1 - 1)\varphi(p_2\dots p_ r) $ 可知 (5)
+由完全剩余系的一个性质可知，当 $m_1$ 与 $m$ 有相同的素因数时，令  
+$$ x = x^{(1)} + m_2 x^{(2)} $$
+其中 $x^{(1)}$ 遍历 $m_1$ 的既约剩余系（共 $\varphi(m_1)$ 个元素），$x^{(2)}$ 遍历 $m_2$ 的完全剩余系（共 $m_2$ 个元素），则 $x$ 遍历 $m$ 的完全剩余系。由此即证 (1)。由 (1) 可推出 (3)。
 
-## 定理2 费马小定理
+设 $m = m_1 m_2$，$(m_1, m_2) = 1$，取  
+$$ x = m_2 x^{(1)} + m_1 x^{(2)} $$
+则 $x$ 遍历 $m$ 的完全（既约）剩余系的充要条件是 $x^{(1)}$、$x^{(2)}$ 分别遍历 $m_1$、$m_2$ 的完全（既约）剩余系，由此得 (4)。
 
-设 (a,m) = 1
-$$a^{\varphi(m)}\equiv 1 \pmod m$$
-特别地 p 为质数时
-$$a ^ p \equiv p \pmod m$$
+由 (3) 和 (4) 知  
+$$ \varphi(p_1 p_2 \dots p_r) = \varphi(p_1) \varphi(p_2 \dots p_r) = (p_1 - 1) \varphi(p_2 \dots p_r) $$
+反复应用可得 (5)。
 
-**证明**
+## 定理2（费马小定理）
 
-设 $r_1,\dots r_{\varphi(a)} $ 为 a 的一组既约同余系有 则 $ar_1,\dots ar_{\varphi(a)}$ 也是 a的一组既约同余系
+设 $(a, m) = 1$，则  
+$$ a^{\varphi(m)} \equiv 1 \pmod m $$
+特别地，当 $p$ 为质数时，  
+$$ a^p \equiv a \pmod p $$
 
-有 
-$$\prod_{j = 1}^{\varphi(m)}r_j \equiv \prod_{j = 1}^{\varphi(m)}(ar_j) = a^{\varphi(m)}\prod_{j = 1}^{\varphi(m)}r_j \pmod m$$
-当 (c,m) = 1 时 $ca \equiv cb \pmod m $ 可知 $a \equiv b \pmod m$
-由定义知 $(r_j,m) = 1 (1 \le j \le \varphi(m)$
-及证
+**证明**  
 
-**推论** 
-$$a ^ {\varphi(m) - 1} \equiv a^{-1} \pmod m$$
+设 $r_1, r_2, \dots, r_{\varphi(m)}$ 是模 $m$ 的一组既约剩余系，则 $a r_1, a r_2, \dots, a r_{\varphi(m)}$ 也是模 $m$ 的一组既约剩余系。于是  
+$$ \prod_{j=1}^{\varphi(m)} r_j \equiv \prod_{j=1}^{\varphi(m)} (a r_j) = a^{\varphi(m)} \prod_{j=1}^{\varphi(m)} r_j \pmod m $$
+由于 $(r_j, m) = 1$，且当 $(c, m)=1$ 时由 $ca \equiv cb \pmod m$ 可推出 $a \equiv b \pmod m$，因此可消去 $\prod r_j$，得 $a^{\varphi(m)} \equiv 1 \pmod m$。证毕。
 
-$$
-a^k \equiv \begin{cases}
-a^{k \bmod \varphi(m)},                &\gcd(a,m) =  1,                   \\
-a^k,                                   &\gcd(a,m)\ne 1, k <   \varphi(m), \\
-a^{(k \bmod \varphi(m)) + \varphi(m)}, &\gcd(a,m)\ne 1, k \ge \varphi(m).
-\end{cases} \pmod m
-$$
-引用自oiwiki https://github.com/OI-wiki/OI-wiki/blob/master/docs/math/number-theory/fermat.md
+**推论**  
+$$ a^{\varphi(m)-1} \equiv a^{-1} \pmod m $$
+
+模幂简化公式（引用自 OI-wiki）：  
+$$ a^k \equiv \begin{cases}
+a^{k \bmod \varphi(m)},                &\gcd(a,m) = 1, \\[4pt]
+a^k,                                   &\gcd(a,m) \ne 1,\; k < \varphi(m), \\[4pt]
+a^{(k \bmod \varphi(m)) + \varphi(m)}, &\gcd(a,m) \ne 1,\; k \ge \varphi(m).
+\end{cases} \pmod m $$
+
 ## 定理3
-对于任意 m
 
-$$\sum_{d \mid m}\varphi(d) = m$$
+对于任意正整数 $m$，有  
+$$ \sum_{d \mid m} \varphi(d) = m $$
 
-**证明**
+**证明**  
 
-由算术基本定理得
+由算术基本定理，设 $m = p_1^{\alpha_1} \dots p_r^{\alpha_r}$，则  
+$$ \sum_{d \mid m} \varphi(d) = \sum_{e_1=0}^{\alpha_1} \dots \sum_{e_r=0}^{\alpha_r} \varphi(p_1^{e_1} \dots p_r^{e_r}) $$
+利用定理1中的积性 (4) 得  
+$$ \sum_{d \mid m} \varphi(d) = \sum_{e_1=0}^{\alpha_1} \dots \sum_{e_r=0}^{\alpha_r} \varphi(p_1^{e_1}) \dots \varphi(p_r^{e_r}) = \left( \sum_{e_1=0}^{\alpha_1} \varphi(p_1^{e_1}) \right) \dots \left( \sum_{e_r=0}^{\alpha_r} \varphi(p_r^{e_r}) \right) $$
+而  
+$$ \sum_{e=0}^{k} \varphi(p^e) = 1 + (p-1) + (p^2 - p) + \dots + (p^k - p^{k-1}) = p^k $$
+因此原式等于 $p_1^{\alpha_1} \dots p_r^{\alpha_r} = m$。证毕。
 
-$$\sum_{d \mid m}\varphi(d) = \sum_{e_1}^{\alpha_1}\dots\sum_{e_r}^{\alpha_r}\varphi(p_1^{e_1}\dots p_r^{e_r})$$
-利用(4)得到 
-$$\sum_{d \mid m}\varphi(d) = \sum_{e_1}^{\alpha_1}\dots\sum_{e_r}^{\alpha_r}\varphi(p_1^{e_1})\dots \varphi(p_r^{e_r})$$
-$$\sum_{d \mid m}\varphi(d) = \left( \sum_{e_1}^{\alpha_1}\varphi(p_1^{e_1}\right)\dots  \left(\sum_{e_r}^{\alpha_r}\varphi(p_r^{e_r})\right)$$
-$$ 1 + (p - 1) + (p^2 - p) + \dots + (p^k - p^{k - 1}) = p^k $$
-
-及证
 
 ## 个人原型
 
