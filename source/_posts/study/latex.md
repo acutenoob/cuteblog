@@ -1,7 +1,7 @@
 ---
 title: latex 科技论文
 date: 2026-04-03 18:53:16
-tags: 日常
+tags: [日常,学习]
 ---
 
 ~~没错 我要用 KaTeX 记录 LaTeX 笔记~~

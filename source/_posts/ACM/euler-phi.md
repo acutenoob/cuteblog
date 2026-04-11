@@ -4,7 +4,7 @@ date: 2026-03-12 10:47:30
 tags: [模板, unsolve, 数论]
 ---
 
-欧拉函数（Euler's totient function），即 $\varphi(n)$，表示的是小于等于 $n$ 且与 $n$ 互质的数的个数。
+> 欧拉函数（Euler's totient function），即 $\varphi(n)$，表示的是小于等于 $n$ 且与 $n$ 互质的数的个数。
 
 # 实现
 
@@ -68,36 +68,36 @@ $$
  $$
 
 设 p 是质数 且 $k \ge 1 $ 则 
-$$ \varphi(p^k) = p^{k - 1}(p - 1) $$
-并且模 p 的既约同余类是 $ (a + bp) \mod p^k,0 \le a \le p - 1,0 \le b \le p^{k - 1} - 1 $  
+$$\varphi(p^k) = p^{k - 1}(p - 1)$$
+并且模 p 的既约同余类是 $(a + bp) \mod p^k,0 \le a \le p - 1,0 \le b \le p^{k - 1} - 1$  
     
 **证明** 
-$$ (r,p) = \left\{
+$$(r,p) = \left\{
 \begin{aligned}
 1, p \nmid r \\
 p, p \mid r
 \end{aligned}
 \right.
 $$
-$ (r,p^k) = 1$ 的充要条件是 $ (r,p) = 1 $ 所以 $\varphi(x) $ 等于 $1,2,\dots ,p ^ k$ 中不能被 p 整除的数个数 显然 这些数个数为 $p ^ {k - 1},\ (p,2p,3p...p^{k - 1}p) $ 所以 $\varphi(x) = p^k - p^{k - 1} $ 及证
+$(r,p^k) = 1$ 的充要条件是 $ (r,p) = 1 $ 所以 $\varphi(x) $ 等于 $1,2,\dots ,p ^ k$ 中不能被 p 整除的数个数 显然 这些数个数为 $p ^ {k - 1},\ (p,2p,3p...p^{k - 1}p) $ 所以 $\varphi(x) = p^k - p^{k - 1}$ 及证
 
 # 性质
 
 ## 定理1
-设 $m = m_1m_2
+设 $m = m_1m_2$
 
 (i)若 m 和 $ m_1$有共同的素因数 则
-    $$  \varphi(m) = m_2\varphi(m_1) (1) $$ 
+    $$\begin{equation}\varphi(m) = m_2\varphi(m_1) \end{equation}$$ 
 当 m > 1 时
-    $$ m = p_1^{\alpha_1}p_2^{\alpha_2}\dots p_r^{\alpha_r}  (2)$$
+    $$\begin{equation} m = p_1^{\alpha_1}p_2^{\alpha_2}\dots p_r^{\alpha_r} \end{equation}$$
 则
-    $$ m = p_1^{\alpha_1 - 1}p_2^{\alpha_2 - 1}\dots p_r^{\alpha_r - 1}\varphi(p_1p_2\dots p_ r)(3)  $$
+    $$\begin{equation}m = p_1^{\alpha_1 - 1}p_2^{\alpha_2 - 1}\dots p_r^{\alpha_r - 1}\varphi(p_1p_2\dots p_ r)\end{equation}$$
 (ii) 若 $(m_1,m_2) = 0$
 则
-    $$\varphi(m) = \varphi(m_1)\varphi(m_2) (4)$$ 
+    $$\begin{equation}\varphi(m) = \varphi(m_1)\varphi(m_2)\end{equation}$$ 
 
 特别地 若 m 由 (2) 给出 有
-    $$ \varphi(m) = (p_1 - 1)p_1^{\alpha_1 - 1} \dots (p_r - 1)p_r^{\alpha_r - 1}(5) $$
+    $$\begin{equation}\varphi(m) = (p_1 - 1)p_1^{\alpha_1 - 1} \dots (p_r - 1)p_r^{\alpha_r - 1}(5)\end{equation}$$
 
 
 **证明**
@@ -115,22 +115,22 @@ $$ x = m_2x^{(1)} + m_1x^{(2)} $$
 ## 定理2 费马小定理
 
 设 (a,m) = 1
-$$ a ^ {\varphi(m)} \equiv 1 \pmod m$$
+$$a^{\varphi(m)}\equiv 1 \pmod m$$
 特别地 p 为质数时
-$$ a ^ p \equiv p \pmod m$$
+$$a ^ p \equiv p \pmod m$$
 
 **证明**
 
-设 $ r_1,\dots r_{\varphi(a)} $ 为 a 的一组既约同余系有 则 $ ar_1,\dots ar_{\varphi(a)} $ 也是 a的一组既约同余系
+设 $r_1,\dots r_{\varphi(a)} $ 为 a 的一组既约同余系有 则 $ar_1,\dots ar_{\varphi(a)}$ 也是 a的一组既约同余系
 
 有 
-$$ \prod_{j = 1}^{\varphi(m)}r_j \equiv \prod_{j = 1}^{\varphi(m)}(ar_j) = a^{\varphi(m)}\prod_{j = 1}^{\varphi(m)}r_j \pmod m$$
+$$\prod_{j = 1}^{\varphi(m)}r_j \equiv \prod_{j = 1}^{\varphi(m)}(ar_j) = a^{\varphi(m)}\prod_{j = 1}^{\varphi(m)}r_j \pmod m$$
 当 (c,m) = 1 时 $ca \equiv cb \pmod m $ 可知 $a \equiv b \pmod m$
 由定义知 $(r_j,m) = 1 (1 \le j \le \varphi(m)$
 及证
 
 **推论** 
-$$ a ^ {\varphi(m) - 1} \equiv a^{-1} \pmod m$$
+$$a ^ {\varphi(m) - 1} \equiv a^{-1} \pmod m$$
 
 $$
 a^k \equiv \begin{cases}
@@ -156,7 +156,6 @@ $$\sum_{d \mid m}\varphi(d) = \left( \sum_{e_1}^{\alpha_1}\varphi(p_1^{e_1}\righ
 $$ 1 + (p - 1) + (p^2 - p) + \dots + (p^k - p^{k - 1}) = p^k $$
 
 及证
-
 
 ## 个人原型
 
